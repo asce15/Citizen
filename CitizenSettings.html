@@ -194,7 +194,7 @@
     <!-- Logout Confirmation Modal -->
     <div
       id="logoutModal"
-      class="hidden fixed inset-0 bg-black/70 bg-opacity-50 z-50 flex justify-center items-center animate-fade-in"
+      class="hidden fixed inset-0 bg-black/70 bg-opacity-50 z-50 justify-center items-center animate-fade-in"
     >
       <div
         class="bg-white p-8 rounded-lg max-w-md w-11/12 text-center shadow-2xl animate-slide-up"
@@ -294,10 +294,12 @@
 
       logoutBtn.addEventListener("click", function () {
         logoutModal.classList.remove("hidden");
+        logoutModal.classList.add("flex");
       });
 
       cancelLogout.addEventListener("click", function () {
         logoutModal.classList.add("hidden");
+        logoutModal.classList.remvove("flex");
       });
 
       confirmLogout.addEventListener("click", function () {
@@ -306,6 +308,7 @@
 
         // Close modal
         logoutModal.classList.add("hidden");
+        logoutModal.classList.remove("flex");
 
         // Redirect to login page (index.html)
         window.location.href = "index.html";
