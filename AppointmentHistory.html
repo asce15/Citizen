@@ -722,7 +722,7 @@
                               </span>
                           </td>
                           <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                              <button class="view-btn text-[#4B5320] hover:text-blue-900" data-id="${appointment.id}">View</button>
+                              <button class="view-btn text-[#4B5320] hover:text-#2B3209 cursor-pointer" data-id="${appointment.id}">View</button>
                           </td>
                       `;
 
@@ -744,7 +744,8 @@
         document.querySelectorAll(".view-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.stopPropagation();
-            const appointmentId = row.dataset.id;
+            // Fix: Get appointmentId from the button's data-id, not from row
+            const appointmentId = btn.dataset.id;
             showAppointmentDetails(appointmentId);
           });
         });
